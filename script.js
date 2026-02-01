@@ -51,7 +51,7 @@ const messages = [
   "your body is working hard....Rest.",
   "you should rest.",
   "If you need anything or...",
-  " or wan to talk don't forget",
+  " or want to talk don't forget",
   "I’m right here with you🌸."
 ];
 
