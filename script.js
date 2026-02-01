@@ -40,11 +40,14 @@ for (let i = 0; i < DOTS_COUNT; i++) {
 
 // Messages (period care)
 const messages = [
-  "Hey love 🤍",
-  "I know today feels heavy",
-  "You don’t have to be strong",
-  "Rest… your body is working hard",
-  "I’m right here with you 🌸"
+  "Hey AMU 🤍.",
+  "I know today feels heavy.",
+  "You are also strong enough.",
+  "your body is working hard....Rest.",
+  "you should rest.",
+  "If you need anything or...",
+  " or wan to talk don't forget",
+  "I’m right here with you🌸."
 ];
 
 let msgIndex = 0;
