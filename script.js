@@ -73,7 +73,7 @@ setInterval(() => {
   msgIndex = (msgIndex + 1) % messages.length;
   textAlpha = 0;
   fadeIn = true;
-}, 3500);
+}, 4000);
 
 // Draw dots
 function drawDots() {
