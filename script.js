@@ -1,7 +1,6 @@
 const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
 
-/* ===== MUSIC CODE START ===== */
 const music = document.getElementById("bgMusic");
 let musicStarted = false;
 
@@ -9,15 +8,19 @@ document.addEventListener("click", () => {
   if (!musicStarted) {
     music.volume = 0.4;
 
-    music.play().then(() => {
-      music.currentTime = 37; // start from 37s AFTER play
-    }).catch(err => {
-      console.log("Music error:", err);
-    });
+    music.play()
+      .then(() => {
+        music.currentTime = 37;
+        console.log("Music started");
+      })
+      .catch(err => {
+        console.log("Music error:", err);
+      });
 
     musicStarted = true;
   }
 });
+
 
 
 
