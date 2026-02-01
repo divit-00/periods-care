@@ -1,19 +1,25 @@
-* {
+/* Reset */
+html, body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  height: 100vh;
-  background: #0d0d1a;
   overflow: hidden;
+  background: #0b0b14;
+  width: 100%;
+  height: 100%;
   font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
-/* Background canvas */
-#bg {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
+/* Canvas full screen */
+canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at top, #121225, #05050a);
+}
+
+/* (Optional) Smooth feel on mobile */
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
 }
