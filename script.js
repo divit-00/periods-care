@@ -49,25 +49,31 @@ for (let i = 0; i < DOTS_COUNT; i++) {
 // Messages (period care)
 const messages = [
   "Hey AMU 🤍.",
-  "I know today feels heavy.",
-  "You are also strong enough.",
-  "your body is working hard....Rest.",
-  "you should rest.",
-  "If you need anything or...",
-  " or want to talk don't forget",
-  "I’m right here with you🌸."
+  "I know today feels heavy 🤍",
+  "Batao, tumhe utha kar le aau kya?",
+  "Kuch khaane ka mann ho raha hai, Dinkar65 khila du kya? 😄🍫",
+  "Netflix, blanket, snacks… bas tum bolo, main arrange kar dunga 🎬🛋️🍿",
+  "Aur agar sirf thoda sa rest chahiye, saath baith kar chup-chaap reh lu kya? 🌸",
+  "Mood swings aaye toh aane do, main handle kar lunga 🤍",
+  "If love could reduce cramps, you’d be pain-free 💕"
+];
+
+];
+
+
 ];
 
 let msgIndex = 0;
 let textAlpha = 0;
+let fadeIn = true;
+
 
 // Change message every 3 seconds
 setInterval(() => {
-  if (msgIndex < messages.length - 1) {
-    msgIndex++;
-    textAlpha = 0;
-  }
-}, 3000);
+  msgIndex = (msgIndex + 1) % messages.length;
+  textAlpha = 0;
+  fadeIn = true;
+}, 3500);
 
 // Draw dots
 function drawDots() {
@@ -99,8 +105,12 @@ function drawText() {
     canvas.height / 2
   );
 
-  if (textAlpha < 1) textAlpha += 0.01;
+  if (fadeIn) {
+    textAlpha += 0.01;
+    if (textAlpha >= 1) fadeIn = false;
+  }
 }
+
 
 // Animation loop
 function animate() {
