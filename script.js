@@ -50,7 +50,7 @@ const messages = [
   "I know today feels heavy 🤍",
   "Batao, tumhe utha kar le aau kya?",
   "Kuch khaane ka mann ho raha hai,\nDinkar65 khila du kya? 😄🍫",
-  "Netflix, blanket, snacks…\nbas tum bolo, main arrange kar dunga 🎬🛋️🍿",
+  "Netflix, blanket, snacks….bas tum bolo,\nmain arrange kar dunga 🎬🛋️🍿",
   "Aur agar sirf thoda sa rest chahiye,\nsaath baith kar chup-chaap reh lu kya? 🌸",
   "Mood swings aaye toh aane do,\nmain handle kar lunga 🤍",
   "If love could reduce cramps,\nyou’d be pain-free 💕"
