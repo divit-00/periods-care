@@ -85,7 +85,9 @@ function drawDots() {
 
 // ===== DRAW TEXT =====
 function drawText() {
-  ctx.font = "28px Comic Sans MS";
+  const fontSize = window.innerWidth < 600 ? 22 : 28;
+  ctx.font = `${fontSize}px Comic Sans MS`;
+
   ctx.textAlign = "center";
   ctx.fillStyle = `rgba(255,182,193,${textAlpha})`;
   ctx.shadowColor = "#ffb6c1";
