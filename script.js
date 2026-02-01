@@ -1,6 +1,20 @@
 const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
 
+/* ===== MUSIC CODE START ===== */
+const music = document.getElementById("bgMusic");
+let musicStarted = false;
+
+document.addEventListener("click", () => {
+  if (!musicStarted) {
+    music.volume = 0.4;   // soft sound
+    music.play().catch(() => {});
+    musicStarted = true;
+  }
+});
+/* ===== MUSIC CODE END ===== */
+
+
 // Resize canvas
 function resizeCanvas() {
   canvas.width = window.innerWidth;
