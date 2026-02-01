@@ -9,15 +9,18 @@ function resize() {
 resize();
 window.addEventListener("resize", resize);
 
-// Soft floating dots
+// Floating dots
 const dots = [];
-for (let i = 0; i < 120; i++) {
+const DOT_COUNT = 120;
+
+for (let i = 0; i < DOT_COUNT; i++) {
   dots.push({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
     r: Math.random() * 2 + 0.5,
-    a: Math.random(),
-    s: Math.random() * 0.3 + 0.1
+    a: Math.random() * 0.8 + 0.2,
+    fade: Math.random() * 0.005 + 0.002,
+    speed: Math.random() * 0.2 + 0.05
   });
 }
 
@@ -46,13 +49,23 @@ function drawDots() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   for (let d of dots) {
+    // Move dot DOWN slowly
+    d.y += d.speed;
+
+    // Reset to top when it goes off screen
+    if (d.y > canvas.height) {
+      d.y = -10;
+      d.x = Math.random() * canvas.width;
+    }
+
+    // Fade in/out
+    d.a += d.fade;
+    if (d.a > 1 || d.a < 0.2) d.fade *= -1;
+
     ctx.beginPath();
     ctx.fillStyle = `rgba(255,255,255,${d.a})`;
     ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
     ctx.fill();
-
-    d.a += d.s * 0.01;
-    if (d.a > 1 || d.a < 0.2) d.s *= -1;
   }
 }
 
@@ -75,9 +88,5 @@ function drawText() {
 
 // Animation loop
 function animate() {
-  drawDots();
-  drawText();
-  requestAnimationFrame(animate);
-}
+  d
 
-animate();
