@@ -1,7 +1,7 @@
-// Canvas setup
 const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
 
+// Resize canvas
 function resize() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
@@ -9,11 +9,9 @@ function resize() {
 resize();
 window.addEventListener("resize", resize);
 
-// Floating soft dots
+// Soft floating dots
 const dots = [];
-const DOT_COUNT = 120;
-
-for (let i = 0; i < DOT_COUNT; i++) {
+for (let i = 0; i < 120; i++) {
   dots.push({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
@@ -23,26 +21,33 @@ for (let i = 0; i < DOT_COUNT; i++) {
   });
 }
 
-// Comforting text
+// Comforting messages
 const messages = [
   "Hey love 🤍",
-  "I know today is hard for you",
+  "I know today feels heavy",
   "Your body is doing its best",
-  "You are strong, even when tired",
-  "You don’t need to be okay right now",
-  "Rest… I’m right here with you 🌸"
+  "You don’t need to be strong right now",
+  "Rest… I’m right here 🌸"
 ];
 
-let msgIndex = 0;
+let currentMessage = 0;
 let alpha = 0;
 
-// Draw background dots
+// Change message every 3 seconds
+setInterval(() => {
+  if (currentMessage < messages.length - 1) {
+    currentMessage++;
+    alpha = 0;
+  }
+}, 3000);
+
+// Draw dots
 function drawDots() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   for (let d of dots) {
     ctx.beginPath();
-    ctx.fillStyle = `rgba(255, 255, 255, ${d.a})`;
+    ctx.fillStyle = `rgba(255,255,255,${d.a})`;
     ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
     ctx.fill();
 
@@ -53,28 +58,19 @@ function drawDots() {
 
 // Draw text
 function drawText() {
-  if (msgIndex >= messages.length) return;
-
   ctx.font = "28px Comic Sans MS";
   ctx.textAlign = "center";
-  ctx.fillStyle = `rgba(255, 182, 193, ${alpha})`;
+  ctx.fillStyle = `rgba(255,182,193,${alpha})`;
   ctx.shadowColor = "#ffb6c1";
   ctx.shadowBlur = 20;
 
   ctx.fillText(
-    messages[msgIndex],
+    messages[currentMessage],
     canvas.width / 2,
     canvas.height / 2
   );
 
-  alpha += 0.01;
-
-  if (alpha >= 1) {
-    setTimeout(() => {
-      alpha = 0;
-      msgIndex++;
-    }, 1800);
-  }
+  if (alpha < 1) alpha += 0.01;
 }
 
 // Animation loop
