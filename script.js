@@ -7,13 +7,18 @@ let musicStarted = false;
 
 document.addEventListener("click", () => {
   if (!musicStarted) {
-    music.currentTime = 37;
-    music.volume = 0.4;   // soft sound
-    music.play().catch(() => {});
+    music.volume = 0.4;
+
+    music.play().then(() => {
+      music.currentTime = 37; // start from 37s AFTER play
+    }).catch(err => {
+      console.log("Music error:", err);
+    });
+
     musicStarted = true;
   }
 });
-/* ===== MUSIC CODE END ===== */
+
 
 
 // Resize canvas
