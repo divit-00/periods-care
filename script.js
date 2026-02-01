@@ -49,11 +49,16 @@ const messages = [
   "Hey AMU 🤍",
   "I know today feels heavy 🤍",
   "Batao, tumhe utha kar le aau kya?",
-  "Kuch khaane ka mann ho raha hai, Dinkar65 khila du kya? 😄🍫",
-  "Netflix, blanket, snacks… bas tum bolo, main arrange kar dunga 🎬🛋️🍿",
-  "Aur agar sirf thoda sa rest chahiye, saath baith kar chup-chaap reh lu kya? 🌸",
-  "Mood swings aaye toh aane do, main handle kar lunga 🤍",
-  "If love could reduce cramps, you’d be pain-free 💕"
+  "Kuch khaane ka mann ho raha hai ",
+  "Dinkar65 khila du kya? 😄🍫",
+  "Netflix, blanket, snacks… bas tum bolo", 
+  "main arrange kar dunga 🎬🛋️🍿",
+  "Aur agar sirf thoda sa rest chahiye", 
+  "saath baith kar chup-chaap reh lu kya? 🌸",
+  "Mood swings aaye toh aane do", 
+  "main handle kar lunga 🤍",
+  "If love could reduce cramps", 
+  "you’d be pain-free 💕"
 ];
 
 let msgIndex = 0;
