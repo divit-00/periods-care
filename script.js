@@ -49,17 +49,13 @@ const messages = [
   "Hey AMU 🤍",
   "I know today feels heavy 🤍",
   "Batao, tumhe utha kar le aau kya?",
-  "Kuch khaane ka mann ho raha hai ",
-  "Dinkar65 khila du kya? 😄🍫",
-  "Netflix, blanket, snacks… bas tum bolo", 
-  "main arrange kar dunga 🎬🛋️🍿",
-  "Aur agar sirf thoda sa rest chahiye", 
-  "saath baith kar chup-chaap reh lu kya? 🌸",
-  "Mood swings aaye toh aane do", 
-  "main handle kar lunga 🤍",
-  "If love could reduce cramps", 
-  "you’d be pain-free 💕"
+  "Kuch khaane ka mann ho raha hai,\nDinkar65 khila du kya? 😄🍫",
+  "Netflix, blanket, snacks…\nbas tum bolo, main arrange kar dunga 🎬🛋️🍿",
+  "Aur agar sirf thoda sa rest chahiye,\nsaath baith kar chup-chaap reh lu kya? 🌸",
+  "Mood swings aaye toh aane do,\nmain handle kar lunga 🤍",
+  "If love could reduce cramps,\nyou’d be pain-free 💕"
 ];
+
 
 let msgIndex = 0;
 let textAlpha = 0;
@@ -92,17 +88,22 @@ function drawDots() {
 function drawText() {
   const fontSize = window.innerWidth < 600 ? 22 : 28;
   ctx.font = `${fontSize}px Comic Sans MS`;
-
   ctx.textAlign = "center";
   ctx.fillStyle = `rgba(255,182,193,${textAlpha})`;
   ctx.shadowColor = "#ffb6c1";
   ctx.shadowBlur = 20;
 
-  ctx.fillText(
-    messages[msgIndex],
-    canvas.width / 2,
-    canvas.height / 2
-  );
+  const lines = messages[msgIndex].split("\n");
+  const lineHeight = fontSize + 6;
+  const startY = canvas.height / 2 - (lines.length - 1) * lineHeight / 2;
+
+  lines.forEach((line, i) => {
+    ctx.fillText(
+      line,
+      canvas.width / 2,
+      startY + i * lineHeight
+    );
+  });
 
   if (fadeIn) {
     textAlpha += 0.01;
