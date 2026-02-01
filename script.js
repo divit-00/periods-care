@@ -1,6 +1,7 @@
 const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
 
+// ===== MUSIC =====
 const music = document.getElementById("bgMusic");
 let musicStarted = false;
 
@@ -21,10 +22,7 @@ document.addEventListener("click", () => {
   }
 });
 
-
-
-
-// Resize canvas
+// ===== RESIZE CANVAS =====
 function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
@@ -32,7 +30,7 @@ function resizeCanvas() {
 resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
 
-// Dots
+// ===== DOTS =====
 const dots = [];
 const DOTS_COUNT = 120;
 
@@ -46,9 +44,9 @@ for (let i = 0; i < DOTS_COUNT; i++) {
   });
 }
 
-// Messages (period care)
+// ===== MESSAGES =====
 const messages = [
-  "Hey AMU 🤍.",
+  "Hey AMU 🤍",
   "I know today feels heavy 🤍",
   "Batao, tumhe utha kar le aau kya?",
   "Kuch khaane ka mann ho raha hai, Dinkar65 khila du kya? 😄🍫",
@@ -58,24 +56,18 @@ const messages = [
   "If love could reduce cramps, you’d be pain-free 💕"
 ];
 
-];
-
-
-];
-
 let msgIndex = 0;
 let textAlpha = 0;
 let fadeIn = true;
 
-
-// Change message every 3 seconds
+// Change message every 4 seconds
 setInterval(() => {
   msgIndex = (msgIndex + 1) % messages.length;
   textAlpha = 0;
   fadeIn = true;
 }, 4000);
 
-// Draw dots
+// ===== DRAW DOTS =====
 function drawDots() {
   for (let d of dots) {
     d.y += d.speed;
@@ -91,7 +83,7 @@ function drawDots() {
   }
 }
 
-// Draw text
+// ===== DRAW TEXT =====
 function drawText() {
   ctx.font = "28px Comic Sans MS";
   ctx.textAlign = "center";
@@ -111,8 +103,7 @@ function drawText() {
   }
 }
 
-
-// Animation loop
+// ===== ANIMATION LOOP =====
 function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawDots();
@@ -121,5 +112,3 @@ function animate() {
 }
 
 animate();
-
-
